@@ -27,23 +27,23 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton1" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="jButtonBebidas" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="jButtonEmpleados" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="jButtonGerente" min="-2" pref="160" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jButton7" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="jButtonFranquicia" min="-2" pref="160" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jButton2" min="-2" pref="160" max="-2" attributes="0"/>
+                              <Component id="jButtonClientes" min="-2" pref="160" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" pref="160" max="-2" attributes="0"/>
+                              <Component id="jButtonProveedorAP" min="-2" pref="160" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="jButtonProveedores" min="-2" pref="160" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -62,18 +62,18 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="jButton6" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="jButtonBebidas" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="jButtonEmpleados" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="jButtonGerente" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton2" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="jButtonClientes" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="jButtonProveedorAP" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="jButtonProveedores" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton7" min="-2" pref="56" max="-2" attributes="0"/>
+              <Component id="jButtonFranquicia" min="-2" pref="56" max="-2" attributes="0"/>
               <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -88,40 +88,61 @@
         <Property name="text" type="java.lang.String" value="Bienvenido al men&#xfa; de la empresa "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="jButtonBebidas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Bebidas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBebidasActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="jButtonClientes">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clientes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonClientesActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="jButtonProveedores">
       <Properties>
         <Property name="text" type="java.lang.String" value="Proveedores"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProveedoresActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="jButtonEmpleados">
       <Properties>
         <Property name="text" type="java.lang.String" value="Empleados"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEmpleadosActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="jButtonProveedorAP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Proveedor Aprobado"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProveedorAPActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="jButtonGerente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gerente"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGerenteActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="jButtonFranquicia">
       <Properties>
         <Property name="text" type="java.lang.String" value="Franquicia"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFranquiciaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -14,6 +14,15 @@ public class FormularioMenu extends javax.swing.JFrame {
     /**
      * Creates new form FormularioMenu
      */
+    
+    FormularioBebidas formBebidas;
+    FormularioCliente formCliente;
+    FormularioProveedorAp formProveedorAp;
+    FormularioProveedor formProveedor;
+    FormularioEmpleado formEmpleado;
+    FormularioFranquicia formFranquicia;
+    FormularioGerente formGerente;
+    
     public FormularioMenu() {
         initComponents();
     }
@@ -28,32 +37,67 @@ public class FormularioMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jButtonBebidas = new javax.swing.JButton();
+        jButtonClientes = new javax.swing.JButton();
+        jButtonProveedores = new javax.swing.JButton();
+        jButtonEmpleados = new javax.swing.JButton();
+        jButtonProveedorAP = new javax.swing.JButton();
+        jButtonGerente = new javax.swing.JButton();
+        jButtonFranquicia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Bienvenido al menú de la empresa ");
 
-        jButton1.setText("Bebidas");
+        jButtonBebidas.setText("Bebidas");
+        jButtonBebidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBebidasActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Clientes");
+        jButtonClientes.setText("Clientes");
+        jButtonClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClientesActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Proveedores");
+        jButtonProveedores.setText("Proveedores");
+        jButtonProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProveedoresActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Empleados");
+        jButtonEmpleados.setText("Empleados");
+        jButtonEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmpleadosActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Proveedor Aprobado");
+        jButtonProveedorAP.setText("Proveedor Aprobado");
+        jButtonProveedorAP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonProveedorAPActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Gerente");
+        jButtonGerente.setText("Gerente");
+        jButtonGerente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGerenteActionPerformed(evt);
+            }
+        });
 
-        jButton7.setText("Franquicia");
+        jButtonFranquicia.setText("Franquicia");
+        jButtonFranquicia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFranquiciaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,20 +107,20 @@ public class FormularioMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonBebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonFranquicia, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButtonProveedorAP, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -90,21 +134,70 @@ public class FormularioMenu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonBebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonProveedorAP, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonFranquicia, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBebidasActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        this.formBebidas = new FormularioBebidas();
+        formBebidas.setVisible(true);
+    }//GEN-LAST:event_jButtonBebidasActionPerformed
+
+    private void jButtonEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadosActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        this.formEmpleado = new FormularioEmpleado();
+        formEmpleado.setVisible(true);
+    }//GEN-LAST:event_jButtonEmpleadosActionPerformed
+
+    private void jButtonGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerenteActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        this.formGerente = new FormularioGerente();
+        formGerente.setVisible(true);
+    }//GEN-LAST:event_jButtonGerenteActionPerformed
+
+    private void jButtonClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientesActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        this.formCliente = new FormularioCliente();
+        formCliente.setVisible(true);
+    }//GEN-LAST:event_jButtonClientesActionPerformed
+
+    private void jButtonProveedorAPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProveedorAPActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        this.formProveedorAp = new FormularioProveedorAp();
+        formProveedorAp.setVisible(true);
+    }//GEN-LAST:event_jButtonProveedorAPActionPerformed
+
+    private void jButtonProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProveedoresActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        this.formProveedor = new FormularioProveedor();
+        formProveedor.setVisible(true);
+    }//GEN-LAST:event_jButtonProveedoresActionPerformed
+
+    private void jButtonFranquiciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFranquiciaActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        this.formFranquicia = new FormularioFranquicia();
+        formFranquicia.setVisible(true);
+    }//GEN-LAST:event_jButtonFranquiciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,13 +235,13 @@ public class FormularioMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButtonBebidas;
+    private javax.swing.JButton jButtonClientes;
+    private javax.swing.JButton jButtonEmpleados;
+    private javax.swing.JButton jButtonFranquicia;
+    private javax.swing.JButton jButtonGerente;
+    private javax.swing.JButton jButtonProveedorAP;
+    private javax.swing.JButton jButtonProveedores;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
