@@ -5,8 +5,7 @@
 package Clases;
 
 
-
-import java.sql.Connection;
+import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -30,8 +29,8 @@ public class Conexion {
     public Connection conectar() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            oConexion = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/empresa?autoReconnect=true&useSSL=false", "root", "1234");
-
+            oConexion = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
+            JOptionPane.showMessageDialog(null, "Conexion exitosa");
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se realizo la conexión." + ex.getMessage());
         }
