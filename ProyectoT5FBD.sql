@@ -17,8 +17,10 @@ foreign key(curpEmp) references Empleado(curpEmp)
 );
 -- Llave cliente y empleado en la bebida
 -- tabla cliente(RFC(PK), nombre, fechaDeCompra, numeroDeB, tipoDeB, totalPago)
+
+
 create table cliente(
-RFC				varchar(20) primary key unique,
+RFC			varchar(20) primary key unique,
 primNombC		varchar(30),
 seguNombC		varchar(30),
 apPatC			varchar(30),
