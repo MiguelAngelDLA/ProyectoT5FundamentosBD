@@ -12,25 +12,24 @@ ingredientes	varchar(80),
 formPreparacion	varchar(80),
 rfcCliente 		varchar(20),
 curpEmp			varchar(20),
-foreign key (rfcCliente) references cliente(RFC),
-foreign key(curpEmp) references Empleado(curpEmp)
+foreign key (rfcCliente) references cliente(RFC)
 );
 -- Llave cliente y empleado en la bebida
 -- tabla cliente(RFC(PK), nombre, fechaDeCompra, numeroDeB, tipoDeB, totalPago)
 
-
+select * from cliente where RFC="F5ODZBJ9XQ3";
 create table cliente(
 RFC			varchar(20) primary key unique,
 primNombC		varchar(30),
 seguNombC		varchar(30),
 apPatC			varchar(30),
 apMatC			varchar(30),
-fechaDeCompra	datetime,
+fechaDeCompra	date,
 numeroDeB		int8,
 tipoDeB			varchar(30),
 totalPago		double
 );
-
+insert into cliente values("FIR230943", "Isaac", "Neftali", "Burciaga", "Chacón", "2022-11-15", 10, "café", 1000);
 -- tabla proveedores(RFCP(PK), nombre, numProdProv, fehcaEnvio, cantFact), proveedor aprobado
 create table proveedorAprobado(
 RFCPA			varchar(30) primary key unique,
@@ -98,7 +97,7 @@ foreign key (claveB) references bebida(claveB)
 -- bebida
 insert into bebida values(12345,"capuccino", "chico", "entera", "morena", "leche, cafe, azúcar", "calentar agua, mezclar el agua, cafe y azúcar al gusto");
 -- cliente
-insert into cliente values("FIR230943", "Isaac", "Neftali", "Burciaga", "Chacón", '2022-11-15', 10, "café", 1000, 12345);
+
 -- proveedorAprobado
 insert into proveedorAprobado values("PACW3424", "Rodrigo", "", "Macías", "Ruiz");
 -- proveedores
