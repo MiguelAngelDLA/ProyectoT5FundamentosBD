@@ -540,5 +540,66 @@ public class Conexion {
         desconectarse();
      }
 
+     //Gerente
      
+     public void AltaGerente(String curpG, String primNombG, String seguNombG, String apPatG, String apMatG,
+                                String calleG, String numG, String colG, String cpG, String cdG,
+                                long telCasa, long telCelular, double sueldo) {
+        conectar();
+        String cadena = "INSERT INTO gerente(curpG, primNombG, seguNombG, apPatG, apMatG, calleG, numG,"
+                + "      colG, cpG, cdG, telCasa, celular, sueldo)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement(cadena);
+            pSt.setString(1, curpG);
+            pSt.setString(2, primNombG);
+            pSt.setString(3, seguNombG);
+            pSt.setString(4, apPatG);
+            pSt.setString(5, apMatG);
+            pSt.setString(6, calleG);
+            pSt.setString(7, numG);
+            pSt.setString(8, colG);
+            pSt.setString(9, cpG);
+            pSt.setString(10, cdG);
+            pSt.setLong(11, telCasa);
+            pSt.setLong(12, telCelular);
+            pSt.setDouble(13, sueldo);
+
+            pSt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de alta " + ex.toString());
+        }
+    }
+     
+     public void mostrarGerente(JTable tabla){
+         conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+            modelo.setRowCount(0);
+            Statement sT = (Statement) oConexion.createStatement();
+            ResultSet rS = sT.executeQuery("Select * from gerente");
+            Object[] arreglo = new Object[13];
+            while (rS.next()) {
+                arreglo[0] = rS.getString(1);
+                arreglo[1] = rS.getString(2);
+                arreglo[2] = rS.getString(3);
+                arreglo[3] = rS.getString(4);
+                arreglo[4] = rS.getString(5);
+                arreglo[5] = rS.getString(6);
+                arreglo[6] = rS.getString(7);
+                arreglo[7] = rS.getString(8);
+                arreglo[8] = rS.getString(9);
+                arreglo[9] = rS.getString(10);
+                arreglo[10] = rS.getLong(11);
+                arreglo[11] = rS.getLong(12);
+                arreglo[12] = rS.getDouble(13);
+                modelo.addRow(arreglo);
+            }
+            tabla.setModel(modelo);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        desconectarse();
+     }
+
 }

@@ -21,7 +21,6 @@ public class Rand {
     private String[] fechas = {"2021-01-01","2022-04-05","2019-11-21","2017-07-22","2016-03-30","2021-08-24","2018-07-27","2019-12-25","2018-02-29","2018-09-31",
     "2015-04-19","2020-09-19","2022-02-29","2022-06-24","2020-09-23","2022-09-26","2018-07-29","2019-05-28","2019-01-11"};
     private String[] cafes = {"Capuccino","Americano","Moca","Frappe","Espresso","Macchiato","Ristretto"};
-    
      public String nombre(){
      String nomb;
      Random rnd = new Random();
