@@ -47,7 +47,7 @@ seguNombP		varchar(30),
 apPatP			varchar(30),
 apMatP			varchar(30),
 numProdProv		int8,
-fechaEnvio		datetime,
+fechaEnvio		DATE,
 cantFact		int8,
 RFCPA			varchar(30),
 foreign key (RFCPA) references proveedorAprobado (RFCPA) on delete cascade on update cascade
@@ -97,6 +97,10 @@ foreign key (claveB) references bebida(claveB) on delete cascade on update casca
 );
 -- registros de comprobación
 -- bebida
+Select CURPG, primNombG, seguNombG, apPatG, apMatG,
+calleG,  numG,  colG,  cpG,  cdG,
+telCasa,  celular, sueldo from gerente;
+
 insert into bebida values(12345,"capuccino", "chico", "entera", "morena", "leche, cafe, azúcar", "calentar agua, mezclar el agua, cafe y azúcar al gusto");
 -- cliente
 insert into cliente values("FIR230943", "Isaac", "Neftali", "Burciaga", "Chacón", '2022-11-15', 10, "café", 1000, 12345);

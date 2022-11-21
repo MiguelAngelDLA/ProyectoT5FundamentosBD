@@ -416,10 +416,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCBCurpBaja" min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="jCBRFCBaja" min="-2" pref="115" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonEliminar" min="-2" pref="93" max="-2" attributes="0"/>
-                      <EmptySpace pref="525" max="32767" attributes="0"/>
+                      <EmptySpace pref="529" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -437,7 +437,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCBCurpBaja" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCBRFCBaja" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="254" max="32767" attributes="0"/>
                   </Group>
@@ -454,7 +454,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel30">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Curp:"/>
+                <Property name="text" type="java.lang.String" value="RFC:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonEliminar">
@@ -465,14 +465,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEliminarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jCBCurpBaja">
+            <Component class="javax.swing.JComboBox" name="jCBRFCBaja">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBCurpBajaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBRFCBajaActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -599,8 +599,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="Modif" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                                  <Component id="jTFPNombreModif" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="jTFPNombreModif" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="jCBRFCModif" min="-2" pref="115" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -641,7 +641,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTFRFCProvApModif" min="-2" pref="124" max="-2" attributes="0"/>
+                              <Component id="jCBRFCapModif" min="-2" pref="115" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -656,7 +656,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Modif" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCBRFCModif" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -670,7 +670,7 @@
                                   <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTFNProdModif" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFRFCProvApModif" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCBRFCapModif" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -811,8 +811,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTFFechaEnvioModif">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTFRFCProvApModif">
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel40">
               <Properties>
                 <Property name="text" type="java.lang.String" value=" Primer Nombre:"/>
@@ -849,8 +847,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTFSNombreModif">
             </Component>
-            <Component class="javax.swing.JTextField" name="Modif">
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel46">
               <Properties>
                 <Property name="text" type="java.lang.String" value="RFC Proveedor Ap"/>
@@ -860,6 +856,32 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="numero de productos"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jCBRFCModif">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBRFCModifActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jCBRFCapModif">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBRFCapModifActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

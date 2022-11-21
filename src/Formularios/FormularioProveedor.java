@@ -7,6 +7,7 @@ package Formularios;
 
 import Clases.Conexion;
 import Clases.Rand;
+import java.sql.Date;
 import java.util.Random;
 
 /**
@@ -62,7 +63,7 @@ public class FormularioProveedor extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jButtonEliminar = new javax.swing.JButton();
-        jCBCurpBaja = new javax.swing.JComboBox<>();
+        jCBRFCBaja = new javax.swing.JComboBox<>();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableBaja = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
@@ -75,7 +76,6 @@ public class FormularioProveedor extends javax.swing.JFrame {
         jTFctdFacturadaModif = new javax.swing.JTextField();
         jTFNProdModif = new javax.swing.JTextField();
         jTFFechaEnvioModif = new javax.swing.JTextField();
-        jTFRFCProvApModif = new javax.swing.JTextField();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jTFSApellidoModif = new javax.swing.JTextField();
@@ -85,9 +85,10 @@ public class FormularioProveedor extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jTFSNombreModif = new javax.swing.JTextField();
-        Modif = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
+        jCBRFCModif = new javax.swing.JComboBox<>();
+        jCBRFCapModif = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -263,7 +264,7 @@ public class FormularioProveedor extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Altas", jPanel8);
 
-        jLabel30.setText("Curp:");
+        jLabel30.setText("RFC:");
 
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -272,9 +273,9 @@ public class FormularioProveedor extends javax.swing.JFrame {
             }
         });
 
-        jCBCurpBaja.addActionListener(new java.awt.event.ActionListener() {
+        jCBRFCBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBCurpBajaActionPerformed(evt);
+                jCBRFCBajaActionPerformed(evt);
             }
         });
 
@@ -304,10 +305,10 @@ public class FormularioProveedor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCBCurpBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCBRFCBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(525, Short.MAX_VALUE))
+                .addContainerGap(529, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel9Layout.createSequentialGroup()
                     .addContainerGap()
@@ -321,7 +322,7 @@ public class FormularioProveedor extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(jButtonEliminar)
-                    .addComponent(jCBCurpBaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCBRFCBaja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(254, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel9Layout.createSequentialGroup()
@@ -382,6 +383,18 @@ public class FormularioProveedor extends javax.swing.JFrame {
 
         jLabel47.setText("numero de productos");
 
+        jCBRFCModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBRFCModifActionPerformed(evt);
+            }
+        });
+
+        jCBRFCapModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBRFCapModifActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -409,8 +422,8 @@ public class FormularioProveedor extends javax.swing.JFrame {
                             .addComponent(jLabel45))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Modif, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFPNombreModif, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTFPNombreModif, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCBRFCModif, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -440,7 +453,7 @@ public class FormularioProveedor extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel46)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTFRFCProvApModif, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jCBRFCapModif, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -451,7 +464,7 @@ public class FormularioProveedor extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel45)
-                            .addComponent(Modif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCBRFCModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel40)
@@ -463,7 +476,7 @@ public class FormularioProveedor extends javax.swing.JFrame {
                             .addComponent(jLabel47)
                             .addComponent(jTFNProdModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel46)
-                            .addComponent(jTFRFCProvApModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jCBRFCapModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel44)
                         .addComponent(jTFFechaEnvioModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -530,25 +543,27 @@ public class FormularioProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaActionPerformed
-        /*
-        String Curp = this.jCurp.getText();
-        String pN = this.jPNombre2.getText();
-        String sN = this.jSNombre2.getText();
-        String PA = this.jPApellido2.getText();
-        String sA = this.jSApellido2.getText();
-        int cel = Integer.parseInt(this.jCel.getText());
-        String ocupa = this.jOcupacion.getText();
-        int hrs = Integer.parseInt(this.jHoras.getText());
+        
+        String RFC = this.jTFRFC.getText();
+        String pN = this.jTFPNombre.getText();
+        String sN = this.jTFSNombre.getText();
+        String PA = this.jTFPApellido.getText();
+        String sA = this.jTFSApellido.getText();
+        long numProdProv = Integer.parseInt(this.jTFNProd.getText());
+        Date fechaEnvio = Date.valueOf(this.jTFFechaEnvio.getText());
+        long cantFact = Integer.parseInt(this.jTFctdFacturada.getText());
+        String RFCPA = this.jComboBoxProvAp.getSelectedItem().toString();
 
-        con.AltaEmpleado(Curp, pN, sN, PA,sA,cel, ocupa, hrs);
-        con.mostrarEmpleado(jTableAlta1);
-        jCBCurpBaja.removeAllItems();
-        con.consultaEmpleado(jCBCurpBaja);
-        con.mostrarEmpleado(jBaja1);
-        comcam.removeAllItems();
-        con.consultaEmpleado(comcam);
-        con.mostrarEmpleado(this.jTableAlta4);
-        */
+        con.AltaProveedores(RFC, pN, sN, PA,sA,numProdProv, fechaEnvio, cantFact, RFCPA);
+        con.mostrarProveedores(jTableAlta);
+        con.mostrarProveedores(jTableBaja);
+        con.mostrarProveedores(this.jTableModif);
+        
+        this.jCBRFCBaja.removeAllItems();
+        con.consultarProveedores(this.jCBRFCBaja);
+      
+        jCBRFCModif.removeAllItems();
+        con.consultarProveedores(jCBRFCModif);
     }//GEN-LAST:event_jButtonAltaActionPerformed
 
     private void jButtonRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomActionPerformed
@@ -566,35 +581,95 @@ public class FormularioProveedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRandomActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        /*
-        String crp = jCBCurpBaja.getSelectedItem().toString();
-        con.eliminarEmpleado(crp);
-        jCBCurpBaja.removeAllItems(jTableAltacon.consultaEmpleado(jCBCurpBaja);
-        con.mostrarEmpleado(jBaja1);
-        con.mostrarEmpleado(this.jTableAlta1);
-        con.mostrarEmpleado(this.jTableAlta4);
-        comcam.removeAllItems();
-        con.consultaEmpleado(comcam);
-        */
+        
+        String rfc = this.jCBRFCBaja.getSelectedItem().toString();
+        con.eliminarProveedor(rfc);
+        
+        con.mostrarProveedores(this.jTableAlta);
+        con.mostrarProveedores(this.jTableBaja);
+        con.mostrarProveedores(this.jTableModif);
+        
+        jCBRFCBaja.removeAllItems();
+        con.consultarProveedores(jCBRFCBaja);
+        
+        jCBRFCModif.removeAllItems();
+        con.consultarProveedores(jCBRFCModif);
+
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
-    private void jCBCurpBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBCurpBajaActionPerformed
+    private void jCBRFCBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBRFCBajaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCBCurpBajaActionPerformed
+    }//GEN-LAST:event_jCBRFCBajaActionPerformed
 
     private void jButtonModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifActionPerformed
         // TODO add your handling code here:
+        String RFC = this.jCBRFCModif.getSelectedItem().toString();
+        String pN = this.jTFPNombreModif.getText();
+        String sN = this.jTFSNombreModif.getText();
+        String PA = this.jTFPApellidoModif.getText();
+        String sA = this.jTFSApellidoModif.getText();
+        long numProdProv = Integer.parseInt(this.jTFNProdModif.getText());
+        Date fechaEnvio = Date.valueOf(this.jTFFechaEnvioModif.getText());
+        long cantFact = Integer.parseInt(this.jTFctdFacturadaModif.getText());
+        String RFCPA = this.jCBRFCapModif.getSelectedItem().toString();
+
+        con.modificarProveedor(RFC, pN, sN, PA, sA, numProdProv, fechaEnvio, cantFact, RFCPA);
+        
+        jComboBoxProvAp.removeAllItems();
+        con.consultaProvAprobado(this.jComboBoxProvAp);
+        
+        this.jCBRFCBaja.removeAllItems();
+        con.consultarProveedores(this.jCBRFCBaja);
+        
+        jCBRFCModif.removeAllItems();
+        con.consultarProveedores(jCBRFCModif);
+        
+        this.jCBRFCapModif.removeAllItems();
+        con.consultaProvAprobado(this.jCBRFCapModif);
+
+        con.mostrarProveedores(jTableAlta);
+        con.mostrarProveedores(jTableBaja);
+        con.mostrarProveedores(this.jTableModif);
     }//GEN-LAST:event_jButtonModifActionPerformed
 
     private void jButtonTraerDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTraerDatosActionPerformed
         // TODO add your handling code here:
+        String RFC = this.jCBRFCModif.getSelectedItem().toString();
+        
+        con.traerDatosProveedor(RFC, jTFPNombreModif, jTFSNombreModif, jTFPApellidoModif, jTFSApellidoModif,
+                jTFNProdModif, jTFFechaEnvioModif, jTFctdFacturadaModif, jCBRFCapModif);
+        
+        
+
     }//GEN-LAST:event_jButtonTraerDatosActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         jComboBoxProvAp.removeAllItems();
         con.consultaProvAprobado(this.jComboBoxProvAp);
+        
+        this.jCBRFCBaja.removeAllItems();
+        con.consultarProveedores(this.jCBRFCBaja);
+        
+        jCBRFCModif.removeAllItems();
+        con.consultarProveedores(jCBRFCModif);
+        
+        this.jCBRFCapModif.removeAllItems();
+        con.consultaProvAprobado(this.jCBRFCapModif);
+
+        
+        con.mostrarProveedores(jTableAlta);
+        con.mostrarProveedores(jTableBaja);
+        con.mostrarProveedores(this.jTableModif);
     }//GEN-LAST:event_formWindowOpened
+
+    private void jCBRFCModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBRFCModifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBRFCModifActionPerformed
+
+    private void jCBRFCapModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBRFCapModifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBRFCapModifActionPerformed
 
     /**
      * @param args the command line arguments
@@ -614,14 +689,15 @@ public class FormularioProveedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Modif;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAlta;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonModif;
     private javax.swing.JButton jButtonRandom;
     private javax.swing.JButton jButtonTraerDatos;
-    private javax.swing.JComboBox<String> jCBCurpBaja;
+    private javax.swing.JComboBox<String> jCBRFCBaja;
+    private javax.swing.JComboBox<String> jCBRFCModif;
+    private javax.swing.JComboBox<String> jCBRFCapModif;
     private javax.swing.JComboBox<String> jComboBoxProvAp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel21;
@@ -658,7 +734,6 @@ public class FormularioProveedor extends javax.swing.JFrame {
     private javax.swing.JTextField jTFPNombre;
     private javax.swing.JTextField jTFPNombreModif;
     private javax.swing.JTextField jTFRFC;
-    private javax.swing.JTextField jTFRFCProvApModif;
     private javax.swing.JTextField jTFSApellido;
     private javax.swing.JTextField jTFSApellidoModif;
     private javax.swing.JTextField jTFSNombre;

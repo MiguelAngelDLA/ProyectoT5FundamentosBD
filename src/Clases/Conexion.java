@@ -680,5 +680,127 @@ public class Conexion {
 
      }
 
+    //Proveedores
+     
+     public void AltaProveedores(String RFCP, String primNombP, String seguNombP, String apPatP, String apMatP,
+             long numProdProv, Date fechaEnvio, long cantFact, String RFCPA) {
+        conectar();
+        String cadena = "INSERT INTO proveedores(RFCP, primNombP, seguNombP, apPatP, apMatP, numProdProv"
+                + ", fechaEnvio, cantFact, RFCPA)values(?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement(cadena);
+            pSt.setString(1, RFCP);
+            pSt.setString(2, primNombP);
+            pSt.setString(3, seguNombP);
+            pSt.setString(4, apPatP);
+            pSt.setString(5, apMatP);
+            pSt.setLong(6, numProdProv);
+            pSt.setDate(7, fechaEnvio);
+            pSt.setLong(8, cantFact);
+            pSt.setString(9, RFCPA);
+
+            pSt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de alta " + ex.toString());
+        }
+    }
+     
+     public void mostrarProveedores(JTable tabla){
+         conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+            modelo.setRowCount(0);
+            Statement sT = (Statement) oConexion.createStatement();
+            ResultSet rS = sT.executeQuery("Select * from proveedores");
+            Object[] arreglo = new Object[9];
+            while (rS.next()) {
+                arreglo[0] = rS.getString(1);
+                arreglo[1] = rS.getString(2);
+                arreglo[2] = rS.getString(3);
+                arreglo[3] = rS.getString(4);
+                arreglo[4] = rS.getString(5);
+                arreglo[5] = rS.getLong(6);
+                arreglo[6] = rS.getDate(7);
+                arreglo[7] = rS.getLong(8);
+                arreglo[8] = rS.getString(9);
+                modelo.addRow(arreglo);
+            }
+            tabla.setModel(modelo);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        desconectarse();
+     }
+     
+     public void consultarProveedores(JComboBox comboBox){
+         conectar();
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement("Select RFCP from proveedores");
+            ResultSet rS = pSt.executeQuery();
+            while (rS.next()) {
+                comboBox.addItem(rS.getString(1));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+        }
+        desconectarse();
+     }
+     
+     public void eliminarProveedor(String rfc) {
+        conectar();
+        String cad = "DELETE FROM proveedores WHERE RFCP = '" + rfc + "'";
+        try {
+            PreparedStatement pS = oConexion.prepareStatement(cad);
+            pS.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error " + ex);
+        }
+        desconectarse();
+    }
+     
+     public void traerDatosProveedor(String RFCP, JTextField primNombP, JTextField seguNombP, JTextField apPatP, JTextField apMatP,
+                                JTextField numProdProv, JTextField fechaEnvio, JTextField cantFact, JComboBox RFCPA){
+         conectar();
+        String cad = "Select primNombP, seguNombP, apPatP, apMatP," +
+                        "numProdProv,  fechaEnvio, cantFact, RFCPA from proveedores " + "where RFCP=" + "'" + RFCP + "'";
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement(cad);
+            ResultSet rS = pSt.executeQuery();
+            while (rS.next()) {
+                primNombP.setText(rS.getString(1));
+                seguNombP.setText(rS.getString(2));
+                apPatP.setText(rS.getString(3));
+                apMatP.setText(rS.getString(4));
+                numProdProv.setText(rS.getString(5));
+                fechaEnvio.setText(rS.getString(6));
+                cantFact.setText(rS.getString(7));
+                RFCPA.setSelectedItem(rS.getString(8));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+        }
+
+        desconectarse();
+
+     }
+     
+     public void modificarProveedor(String RFCP, String primNombP, String seguNombP, String apPatP, String apMatP,
+             long numProdProv, Date fechaEnvio, long cantFact, String RFCPA){
+         conectar();
+
+        String cad = "Update proveedores Set primNombP='" + primNombP + "',seguNombP='" + seguNombP + "',apPatP='" + apPatP + 
+                "',apMatP='" + apMatP + "',numProdProv='" + numProdProv + "',fechaEnvio='" + fechaEnvio + "',cantFact='" + cantFact + "',RFCPA='" + RFCPA
+             + "'WHERE RFCP='" + RFCP + "'";
+        try {
+            PreparedStatement pS = oConexion.prepareStatement(cad);
+            pS.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        desconectarse();
+
+     }
 
 }
