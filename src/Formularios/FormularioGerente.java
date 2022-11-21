@@ -715,7 +715,12 @@ public class FormularioGerente extends javax.swing.JFrame {
         
         con.mostrarGerente(this.jTableAltaGerente);
         con.mostrarGerente(this.jTableBajaGerente);
-        con.mostrarGerente(this.jTableModificarGerente);
+        con.mostrarGerente(this.jTableModificarGerente); 
+        
+        this.jCBCurp.removeAllItems();
+       con.consultaGerente(jCBCurp);
+       this.jCBCurpCambios.removeAllItems();
+       con.consultaGerente(jCBCurpCambios);
     }//GEN-LAST:event_jButtonAltaActionPerformed
 
     private void jButtonRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomActionPerformed
