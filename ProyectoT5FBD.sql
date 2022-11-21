@@ -12,8 +12,8 @@ ingredientes	varchar(80),
 formPreparacion	varchar(80),
 rfcCliente 		varchar(20),
 curpEmp			varchar(20),
-foreign key (rfcCliente) references cliente(RFC),
-foreign key(curpEmp) references Empleado(curpEmp)
+foreign key (rfcCliente) references cliente(RFC) on delete cascade on update cascade,
+foreign key(curpEmp) references Empleado(CURPE) on delete cascade on update cascade
 );
 -- Llave cliente y empleado en la bebida
 -- tabla cliente(RFC(PK), nombre, fechaDeCompra, numeroDeB, tipoDeB, totalPago)
@@ -39,6 +39,7 @@ seguNombPA		varchar(30),
 apPatPA			varchar(30),
 apMatPA			varchar(30)
 );
+
 create table proveedores(
 RFCP			varchar(30) primary key unique,
 primNombP		varchar(30),
@@ -49,7 +50,7 @@ numProdProv		int8,
 fechaEnvio		datetime,
 cantFact		int8,
 RFCPA			varchar(30),
-foreign key (RFCPA) references proveedorAprobado (RFCPA)
+foreign key (RFCPA) references proveedorAprobado (RFCPA) on delete cascade on update cascade
 );
 
 -- tabla empleado(CURPE(PK), nombre, celular, ocupación, hrsTrab)
@@ -88,11 +89,11 @@ RFCP		varchar(20),
 CURPE		varchar(20),
 RFC			varchar(20),
 claveB		int8,
-foreign key (CURPG) references gerente(CURPG),
-foreign key (RFCP) references proveedores(RFCP),
-foreign key (CURPE) references empleado(CURPE),
-foreign key (RFC) references cliente(RFC),
-foreign key (claveB) references bebida(claveB)
+foreign key (CURPG) references gerente(CURPG) on delete cascade on update cascade,
+foreign key (RFCP) references proveedores(RFCP) on delete cascade on update cascade,
+foreign key (CURPE) references empleado(CURPE) on delete cascade on update cascade,
+foreign key (RFC) references cliente(RFC) on delete cascade on update cascade,
+foreign key (claveB) references bebida(claveB) on delete cascade on update cascade
 );
 -- registros de comprobación
 -- bebida
