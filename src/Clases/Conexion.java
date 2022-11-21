@@ -803,4 +803,96 @@ public class Conexion {
 
      }
 
+     //Franquicia
+     public void altaFranquicia(String CURPG, String RFCP, String CURPE, String RFC, int claveB){
+         
+        conectar();
+        String cadena = "INSERT INTO franquicia(CURPG, RFCP, CURPE, RFC, claveB)values(?,?,?,?,?)";
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement(cadena);
+            pSt.setString(1, CURPG);
+            pSt.setString(2, RFCP);
+            pSt.setString(3, CURPE);
+            pSt.setString(4, RFC);
+            pSt.setInt(5, claveB);
+
+            pSt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error de alta " + ex.toString());
+        }
+    }
+     
+     public void mostrarFranquicia(JTable tabla){
+         conectar();
+        try {
+            DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+            modelo.setRowCount(0);
+            Statement sT = (Statement) oConexion.createStatement();
+            ResultSet rS = sT.executeQuery("Select * from franquicia");
+            Object[] arreglo = new Object[5];
+            while (rS.next()) {
+                arreglo[0] = rS.getString(1);
+                arreglo[1] = rS.getString(2);
+                arreglo[2] = rS.getString(3);
+                arreglo[3] = rS.getString(4);
+                arreglo[4] = rS.getInt(5);
+                modelo.addRow(arreglo);
+            }
+            tabla.setModel(modelo);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        desconectarse();
+     }
+     
+     public void eliminarFranquicia(String curp) {
+        conectar();
+        String cad = "DELETE FROM franquicia WHERE CURPG = '" + curp + "'";
+        try {
+            PreparedStatement pS = oConexion.prepareStatement(cad);
+            pS.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error " + ex);
+        }
+        desconectarse();
+    }
+
+     public void traerDatosFranquicia(String CURPG, JComboBox RFCP, JComboBox CURPE,
+             JComboBox RFC, JComboBox claveB){
+         conectar();
+        String cad = "Select RFCP, CURPE, RFC, claveB from franquicia " + "where CURPG=" + "'" + CURPG + "'";
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement(cad);
+            ResultSet rS = pSt.executeQuery();
+            while (rS.next()) {
+                RFCP.setSelectedItem(rS.getString(1));
+                CURPE.setSelectedItem(rS.getString(2));
+                RFC.setSelectedItem(rS.getString(3));
+                claveB.setSelectedItem(rS.getString(4));
+                }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+        }
+
+        desconectarse();
+     }
+
+     public void modificarFranquicia(String CURPG, String RFCP, String CURPE, String RFC, int claveB){
+         conectar();
+
+        String cad = "Update franquicia Set RFCP='" + RFCP + "',CURPE='" + CURPE + "',RFC='" + RFC + 
+                "',claveB='" + claveB
+             + "'WHERE CURPG='" + CURPG + "'";
+        try {
+            PreparedStatement pS = oConexion.prepareStatement(cad);
+            pS.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        desconectarse();
+
+     }
+
 }
