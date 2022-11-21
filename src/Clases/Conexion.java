@@ -471,6 +471,46 @@ public class Conexion {
         desconectarse();
         
     }
+     
+     public void datosModificacionBebida(int claveB, JTextField nombreB, JTextField tamaño, JTextField tipoDeLeche, JTextField tipoDeAzucar,
+                                JTextField ingredientes, JTextField formPreparacion) {
+        conectar();
+        String cad = "Select nombreB, tamaño, tipoDeLeche, tipoDeAzucar, ingredientes, formPreparacion, rfcCliente, curpEmp"
+                + " from bebida " + "where claveB=" + "" + claveB + "";
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement(cad);
+            ResultSet rS = pSt.executeQuery();
+            while (rS.next()) {
+                nombreB.setText(rS.getString(1));
+                tamaño.setText(rS.getString(2));
+                tipoDeLeche.setText(rS.getString(3));
+                tipoDeAzucar.setText(rS.getString(4));
+                ingredientes.setText(rS.getString(5));
+                formPreparacion.setText(rS.getString(6));
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+        }
+        desconectarse();
+    }
+     
+     public void modificarBebida(int claveB, String nombreB, String tamaño, String tipoDeLeche, String tipoDeAzucar,
+                                String ingredientes, String formPreparacion){
+        conectar();
+
+        String cad = "Update bebida Set nombreB='" + nombreB + "',tamaño='" + tamaño + "',tipoDeLeche='" + tipoDeLeche + 
+                "',tipoDeAzucar='" + tipoDeAzucar + "',ingredientes='" + ingredientes + "',formPreparacion='" + formPreparacion
+             + "'WHERE claveB=" + claveB;
+        try {
+            PreparedStatement pS = oConexion.prepareStatement(cad);
+            pS.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        desconectarse();
+     }
 
      public void mostrarBebida(JTable tabla){
          conectar();
