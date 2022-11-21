@@ -602,4 +602,83 @@ public class Conexion {
         desconectarse();
      }
 
+     public void consultaGerente(JComboBox combo) {
+        conectar();
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement("Select curpG from gerente");
+            ResultSet rS = pSt.executeQuery();
+            while (rS.next()) {
+                combo.addItem(rS.getString(1));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+        }
+        desconectarse();
+    }
+     
+     public void eliminarGerente(String curp) {
+        conectar();
+        String cad = "DELETE FROM gerente WHERE CURPG = '" + curp + "'";
+        try {
+            PreparedStatement pS = oConexion.prepareStatement(cad);
+            pS.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "error " + ex);
+        }
+        desconectarse();
+    }
+     
+     public void traerDatosGerente(String curp, JTextField primNombG, JTextField seguNombG, JTextField apPatG, JTextField apMatG,
+                                JTextField calleG, JTextField numG, JTextField colG, JTextField cpG, JTextField cdG, JTextField telCasa,
+                                JTextField telCelular, JTextField sueldo){
+         conectar();
+        String cad = "Select primNombG, seguNombG, apPatG, apMatG," +
+                        "calleG,  numG,  colG,  cpG,  cdG," +
+                        "telCasa,  celular, sueldo from gerente " + "where CURPG=" + "'" + curp + "'";
+        try {
+            PreparedStatement pSt = oConexion.prepareStatement(cad);
+            ResultSet rS = pSt.executeQuery();
+            while (rS.next()) {
+                primNombG.setText(rS.getString(1));
+                seguNombG.setText(rS.getString(2));
+                apPatG.setText(rS.getString(3));
+                apMatG.setText(rS.getString(4));
+                calleG.setText(rS.getString(5));
+                numG.setText(rS.getString(6));
+                colG.setText(rS.getString(7));
+                cpG.setText(rS.getString(8));
+                cdG.setText(rS.getString(9));
+                telCasa.setText(rS.getString(10));
+                telCelular.setText(rS.getString(11));
+                sueldo.setText(rS.getString(12));
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+        }
+
+        desconectarse();
+
+     }
+     
+     public void modificarGerente(String curpG, String primNombG, String seguNombG, String apPatG, String apMatG, String calleG, String numG,
+             String colG, String cpG, String cdG, long telCasa, long celular, double sueldo){
+         conectar();
+
+        String cad = "Update gerente Set primNombG='" + primNombG + "',seguNombG='" + seguNombG + "',apPatG='" + apPatG + 
+                "',apMatG='" + apMatG + "',calleG='" + calleG + "',numG='" + numG + "',colG='" + colG + "',cpG='" + cpG
+                + "',cdG='" + cdG + "',telCasa='" + telCasa + "',celular='" + celular +"',sueldo='" + sueldo
+             + "'WHERE CURPG='" + curpG + "'";
+        try {
+            PreparedStatement pS = oConexion.prepareStatement(cad);
+            pS.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        desconectarse();
+
+     }
+
+
 }
