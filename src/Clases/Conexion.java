@@ -114,7 +114,7 @@ public class Conexion {
             tabla.setModel(modelo);
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error de conexión a la base de datos.");
+            JOptionPane.showMessageDialog(null, "Error de MOSTRAR a la base de datos." + ex.getMessage());
         }
         desconectarse();
     }

@@ -103,14 +103,16 @@ telCasa,  celular, sueldo from gerente;
 
 insert into bebida values(12345,"capuccino", "chico", "entera", "morena", "leche, cafe, azúcar", "calentar agua, mezclar el agua, cafe y azúcar al gusto");
 -- cliente
-insert into cliente values("FIR230943", "Isaac", "Neftali", "Burciaga", "Chacón", '2022-11-15', 10, "café", 1000, 12345);
+insert into cliente values("N/A", "", "", "", "", '0000-00-00', 0, "N/A", 0);
+DELETE FROM cliente where RFC = 'N/A';
 -- proveedorAprobado
 insert into proveedorAprobado values("PACW3424", "Rodrigo", "", "Macías", "Ruiz");
 -- proveedores
 insert into proveedores values("PFWE25233", "José", "Emanuel", "Guerrero", "Segura", 300, '2022-11-01', 6000, "PACW3424");
 -- empleado (hrsTrab es por semana)
-insert into empleado values("EMP32425", "Kevin", "Zaid", "Landeros", "Cruz", 8712334567, "producción", 40, 12345);
+insert into empleado values("N/A", "N/A", "N/A", "N/A", "N/A", 0, "N/A", 0);
 -- gerente
 insert into gerente values("GDT45663", "Juan", "Manuel", "Torres", "Ramírez", "Campo de magnolias", "855", "Campo nuevo", "27982", "Torreón", 2350252, 8715334570, 30000);
--- franquicia
+-- franquicias
+
 insert into franquicia values("GDT45663", "PFWE25233", "EMP32425", "FIR230943", 12345);

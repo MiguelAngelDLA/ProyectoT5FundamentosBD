@@ -126,11 +126,11 @@ Conexion con = new Conexion();
 
             },
             new String [] {
-                "Clave", "Nombre", "Tamaño", "Tipo Leche", "Tipo Azucar", "Ingredientes	", "Preparacion", "RFC cliente"
+                "Clave", "Nombre", "Tamaño", "Tipo Leche", "Tipo Azucar", "Ingredientes	", "Preparacion", "RFC cliente", "Curp emp"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -150,12 +150,16 @@ Conexion con = new Conexion();
             }
         });
 
+        combalta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N/A" }));
+
         jButton3.setText("Random");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+
+        comboACu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N/A" }));
 
         jLabel19.setText("Curp Empleado");
 
@@ -477,12 +481,13 @@ Conexion con = new Conexion();
                                     .addComponent(jIngredientesCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jNombreCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel16)
-                                        .addComponent(jAzucarCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jAzucarCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel13)
+                                        .addComponent(jNombreCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel14)
@@ -555,6 +560,7 @@ Conexion con = new Conexion();
         this.combito3.removeAllItems();
         con.consultaBebida(combito2);
         con.consultaBebida(combito3);
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -575,8 +581,24 @@ Conexion con = new Conexion();
           this.jIngredientes.setText(ingredientes[rnd.nextInt(6)]);
           this.jPreparacion.setText(preparaciones[rnd.nextInt(6)]);
           
-          this.combalta.setSelectedIndex(rnd.nextInt(combalta.getItemCount()-1));
-          this.comboACu.setSelectedIndex(rnd.nextInt(comboACu.getItemCount()-1));
+          comboACu.setSelectedIndex(rnd.nextInt(comboACu.getItemCount()));
+          this.combalta.setSelectedIndex(rnd.nextInt(comboACu.getItemCount()));
+          while("N/A".equals(comboACu.getSelectedItem().toString()) && "N/A".equals(combalta.getSelectedItem().toString())){
+              
+                  this.comboACu.setSelectedIndex(rnd.nextInt(comboACu.getItemCount()));
+                this.combalta.setSelectedIndex(rnd.nextInt(combalta.getItemCount()));
+
+            }
+          if(!"N/A".equals(comboACu.getSelectedItem().toString()) && !"N/A".equals(combalta.getSelectedItem().toString())){
+              boolean decision = rnd.nextBoolean();
+              if(decision) this.combalta.setSelectedItem("N/A");
+              else this.comboACu.setSelectedItem("N/A");
+              
+          }
+          
+          
+
+          
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaActionPerformed
